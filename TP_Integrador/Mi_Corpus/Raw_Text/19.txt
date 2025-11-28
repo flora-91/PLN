@@ -1,0 +1,23 @@
+LILA #9874EB
+AZUL #647DF1
+ROJO #E44354
+
+
+Alto 726 y ancho 1280 fuente DIN
+
+
+
+CPA = DIVIDE([Total Spend], [Estimated Conversions], 0)
+
+total spend nuestro
+
+Total Spend = SUM('marketing_campaign_dataset'[Acquisition_Cost])
+
+estimated convetion nuestro
+
+Estimated Conversions = 
+SUMX(
+    'marketing_campaign_dataset',
+    'marketing_campaign_dataset'[Clicks] *
+    ('marketing_campaign_dataset'[Conversion_Rate] / 100)
+)
