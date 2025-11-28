@@ -1,51 +1,113 @@
- # Análisis de NLP: 'Análisis sobre la evolución del Merengue desde 1985 al 2007'
+# Análisis de NLP: "Análisis de reseñas de cursos de Domestika"
 
-## Descripción
-Breve descripción del corpus elegido: El corpus elegido está basado en canciones del genero Merengue, todas con temática sobre el 'amor', comprendidas entre los años 1985 al 2007. El corpus abarca 20 canciones, todas extraídas de las páginas: Genius.com, Letras.com. Cada una de ellas transformadas al formato .txt
+### 
 
-Objetivos del análisis: Saber si evolucionó el lenguaje amoroso en el merengue entre 1985 y 2007, haciendo énfasis en las formas de describir el amor en las letras.
+### 📌Descripción
 
-Principales hallazgos encontrados: Se descubrió que, en el merengue entre 1985 y 2007, los adjetivos casi no crecieron en importancia, lo que significa que las letras no se volvieron más descriptivas con el tiempo. Ademas, los verbos y los sutantivos fueron utilizados con mucha frecuencia en la década de los 80s-90s, y luego los tres grupos gramaticales fueron reduciendose a partir de los años 2000. 
+El corpus está conformado por reseñas reales de alumnos publicadas en la plataforma Domestika, recopiladas manualmente en formato .txt. Incluye 26 documentos individuales (con una extensión de entre 80 y 200 palabras cada uno), escritos entre 2021 y 2025. Representan experiencias recientes de estudiantes en cursos online.
 
-## Información del Corpus
-- **Tipo**: [Músical]
-- **Tamaño**: 20 textos, aproximadamente 3100 palabras totales
-- **Fuentes principales**: [Genius.com y Letras.com]
-- **Período temporal**: [1985 al 2007]
-- **Criterios de selección**: [Los elegí basandome en las cancionces más populares del género Merengue en el período de tiempo mencionado.]
 
-## Técnicas de NLP Aplicadas
-- Preprocesamiento de texto (limpieza, tokenización, stop words)
-- Análisis con Bag of Words (BoW) y TF-IDF
-- Análisis con Word Embeddings (spaCy)
-- Técnica complementaria aplicada: POS Tagging
 
-## Principales Hallazgos
-- #1: El merengue parece haber enfatizado más los sustantivos (cosas, personas, conceptos) y los verbos (acciones, sentimientos, dinámicas) que los adjetivos (descripciones).
-- #2: Los sustantivos fueron muy relevantes a fines de los 80s y principio de los 90s.
-- #3: Hubo un cambio en los 90: los sustantivos bajaron mientras que los verbos subieron, lo que sugiere un viraje desde lo nominal (nombres, objetos) hacia lo activo (acciones, procesos) en las letras.
-- #4: A partir de los 2000, se percibe una simplificación general: menos sustantivos y verbos, y pocos adjetivos, lo que podría reflejar un estilo más directo o repetitivo en las letras.
-- #5 Se pudo evidenciar las diferencias estilísticas entre diferentes autores.
-- Comparación entre métodos: Embedding fue el mejor enfoque, ya que al representar las palabras en un espacio semántico, permitió detectar similitudes temáticas más profundas entre canciones, incluso cuando no compartían vocabulario explícito. Pero, Pos Tagging fue el análisis que finalmente dió respuesta de la hipótesis planteada.
+El corpus se encuentra acompañado de un archivo metadata.csv con la siguiente información: título, autor, fecha, categoría y cantidad aproximada de palabras.
 
-## Tecnologías Utilizadas
-- Python 3.x
-- pandas, numpy
-- scikit-learn
-- spaCy
-- matplotlib, seaborn
-- collections
-- string
-- re
-- pickle
 
-## Instrucciones de Reproducción
-El notebook ya está debidamente ejecutado, se encuentra en la carpeta Notebook.
 
-## Limitaciones y Trabajo Futuro
-- No se pudo realizar el Análisis de Sentimientos porque textblolt daba valores nulos, probablemente porque está optimizado para textos en inglés.
-- Tal vez enfocarlos a otros estilos músicales e incluso profundizar en el análisis por intérprete, especialmente en aquellos artistas que han explorado distintos géneros a lo largo de su carrera. Comparar cómo cambia su estilo lírico según el género musical permitiría entender mejor su evolución artística y emocional.
+### 🎯Objetivos del análisis
 
-## Autor
-Michell Andreina Zambrano Hereira - email: 19121189@ifts24.edu.ar / GitHub: https://github.com/michellzambranohereira/PLN
-Trabajo Integrador - NLP - Fecha: 25/09/2025
+Elegí este corpus porque las reseñas de cursos online permiten analizar el Customer Experience educativo, es decir, cómo los alumnos perciben el aprendizaje y la figura del instructor. El objetivo es identificar qué factores están asociados a la satisfacción estudiantil: aplicabilidad práctica de los contenidos o valoración positiva del docente.
+
+### 
+
+### 🧠Hipótesis general
+
+La satisfacción de los alumnos en cursos online aumenta cuando perciben que el aprendizaje es aplicable a su vida real y cuando valoran positivamente al instructor como figura de confianza.
+
+### 
+
+### 🔍Por qué es útil esta hipótesis
+
+\- Integra dos componentes clave del Customer Experience educativo: valor práctico y confianza en el instructor.
+
+\- Permite explicar mejor la satisfacción global considerando qué se aprende y quién enseña.
+
+### 
+
+### 
+
+### 📊Hallazgos principales sobre el corpus
+
+La mayoría de las reseñas presentan una tendencia positiva, aunque también aparecen opiniones neutrales y algunas negativas. Se observó un alto nivel de subjetividad: muchos usuarios escriben desde su experiencia emocional y personal, más que desde descripciones objetivas.
+
+Esto confirma parcialmente la hipótesis de una recepción mayormente favorable.
+
+
+
+### 🔄Comparación de métodos utilizados
+
+* Las técnicas de Bag of Words (BoW) y TF-IDF fueron útiles para identificar palabras frecuentes y representativas del corpus. Estas técnicas resultan valiosas para clasificación o búsqueda de información.
+* Los análisis de sentimiento con TextBlob y VADER ofrecieron una mirada complementaria al clasificar el tono emocional de los textos.
+* En situaciones reales, BoW/TF-IDF es más útil para tareas estructuradas, mientras que embeddings o modelos semánticos avanzados permiten captar significados y matices que van más allá de las palabras aisladas.
+
+
+
+### ⚠️Limitaciones encontradas
+
+* TextBlob y VADER están entrenados principalmente para inglés, lo que introduce sesgos.
+* No se capturan adecuadamente ironía, sarcasmo o referencias culturales.
+* El uso de modelos entrenados en español, como BETO o modelos de Hugging Face, podría mejorar la precisión.
+
+
+
+### 🚀Aplicaciones potenciales del análisis
+
+* Este análisis es útil para marketing digital y experiencia de usuario, permitiendo monitorear opiniones de clientes y detectar rápidamente fortalezas y debilidades de un producto o servicio.
+* Transforma texto libre en información cuantificable que facilita la toma de decisiones estratégicas.
+* Futuras mejoras podrían incluir modelos de clasificación automática, análisis de temas (topic modeling) o dashboards interactivos para monitoreo en tiempo real.
+
+### 
+
+### 🛠️Técnicas de NLP aplicadas
+
+* Preprocesamiento de texto: limpieza, tokenización, stopwords
+* Bag of Words (BoW)
+* TF-IDF
+* Word Embeddings (spaCy)
+* POS Tagging
+
+
+
+### 💻Tecnologías utilizadas
+
+* Python 3.x
+* pandas, numpy
+* scikit-learn
+* spaCy
+* matplotlib, seaborn
+* collections
+* string
+* re
+
+
+
+### 📂Instrucciones de reproducción
+
+El notebook está completamente ejecutado y se encuentra en la carpeta "Notebook".
+
+
+
+### 🔧Limitaciones y trabajo futuro
+
+No se pudo realizar el análisis de sentimiento con TextBlob debido a problemas de clasificación, por lo que se intentó utilizar transformers sin buenos resultados.
+
+### 
+
+### 👩‍💻Autora
+
+Florencia Lombardi
+
+📧florencialombardi44@gmail.com
+
+🗓️Trabajo Integrador - NLP - Fecha: 25/09/2025
+
+
+
